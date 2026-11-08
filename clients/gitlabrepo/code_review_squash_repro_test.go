@@ -527,9 +527,63 @@ type sylvaWindow struct {
 	} `json:"merge_requests"`
 }
 
+// TestHistoricPin41288CodeReview replays the inclusive history at
+// 41288bf252a91346ca75e69061317a82adfc52cd. Depth 10 is the requested
+// investigation length. Depth 30 is the default, at the same pin.
+// Squash grouping is asserted separately from the baseline.
+func TestHistoricPin41288CodeReview(t *testing.T) {
+	t.Parallel()
+
+	const pin = "41288bf252a91346ca75e69061317a82adfc52cd"
+	commits, mrs, squashToMerge := loadCodeReviewWindow(t, "testdata/sylva-core-41288bf-code-review-window")
+	if len(commits) != 30 || commits[0].ID != pin {
+		t.Fatalf("fixture prefix pin=%s len=%d", commits[0].ID, len(commits))
+	}
+
+	tenZip := gitlabrepo.ZipCommitsForTest(commits[:10], mrs)
+	ten := scoreCommits(t, tenZip)
+	if countAssociated(tenZip) != 5 || ten.approved != 5 || ten.total != 10 || ten.score != 5 {
+		t.Fatalf("depth 10 baseline associated=%d %d/%d score %d reason %q\n%s",
+			countAssociated(tenZip), ten.approved, ten.total, ten.score, ten.reason, formatChangesets(ten.changesets))
+	}
+	// Both commits are in the history, and GitLab's commit API links them to
+	// !9729, but that MR merged on 2026-11-04, after this pin's committed date,
+	// so the production mergedBefore query does not return it.
+	if associatedNumber(tenZip, pin) != 0 || associatedNumber(tenZip, "0a24f37b24a29e9c42c9d6a195dfc48a5e789fe7") != 0 {
+		t.Fatalf("pin association=%d parent association=%d", associatedNumber(tenZip, pin), associatedNumber(tenZip, "0a24f37b24a29e9c42c9d6a195dfc48a5e789fe7"))
+	}
+	if associatedNumber(tenZip, "cfd7d3fb04e316f3da7f7035876503c360236ce2") != 9671 ||
+		associatedNumber(tenZip, "fbb2fdf69cea74276742f6c7039b954779d70dbb") != 0 {
+		t.Fatalf("!9671 merge=%d squash=%d", associatedNumber(tenZip, "cfd7d3fb04e316f3da7f7035876503c360236ce2"), associatedNumber(tenZip, "fbb2fdf69cea74276742f6c7039b954779d70dbb"))
+	}
+
+	thirtyZip := gitlabrepo.ZipCommitsForTest(commits, mrs)
+	thirty := scoreCommits(t, thirtyZip)
+	if countAssociated(thirtyZip) != 18 || thirty.approved != 12 || thirty.total != 25 || thirty.score != 4 {
+		t.Fatalf("depth 30 baseline associated=%d %d/%d score %d reason %q",
+			countAssociated(thirtyZip), thirty.approved, thirty.total, thirty.score, thirty.reason)
+	}
+
+	tenGrouped := scoreCommits(t, associateSquashSHAs(tenZip, squashToMerge))
+	if countAssociated(associateSquashSHAs(tenZip, squashToMerge)) != 8 ||
+		tenGrouped.approved != 5 || tenGrouped.total != 7 || tenGrouped.score != 7 {
+		t.Fatalf("depth 10 squash-grouped %d/%d score %d associated=%d",
+			tenGrouped.approved, tenGrouped.total, tenGrouped.score, countAssociated(associateSquashSHAs(tenZip, squashToMerge)))
+	}
+	thirtyGrouped := scoreCommits(t, associateSquashSHAs(thirtyZip, squashToMerge))
+	if thirtyGrouped.approved != 12 || thirtyGrouped.total != 15 || thirtyGrouped.score != 8 {
+		t.Fatalf("depth 30 squash-grouped %d/%d score %d", thirtyGrouped.approved, thirtyGrouped.total, thirtyGrouped.score)
+	}
+}
+
 func loadSylvaWindow(t *testing.T) ([]gitlabrepo.CommitFixture, []gitlabrepo.MergeRequestFixture, map[string]string) {
 	t.Helper()
-	buf, err := os.ReadFile("testdata/sylva-core-code-review-window")
+	return loadCodeReviewWindow(t, "testdata/sylva-core-code-review-window")
+}
+
+func loadCodeReviewWindow(t *testing.T, path string) ([]gitlabrepo.CommitFixture, []gitlabrepo.MergeRequestFixture, map[string]string) {
+	t.Helper()
+	buf, err := os.ReadFile(path)
 	if err != nil {
 		t.Fatalf("read fixture: %v", err)
 	}

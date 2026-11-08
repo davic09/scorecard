@@ -1,0 +1,924 @@
+{
+  "provenance": {
+    "projectPath": "sylva-projects/sylva-core",
+    "projectId": 42451983,
+    "gitRef": "41288bf252a91346ca75e69061317a82adfc52cd",
+    "retrieved": "2026-11-08",
+    "graphqlMergedBefore": "2026-11-03T12:40:36Z",
+    "note": "REST commits are the first 30 from ref_name=gitRef with first_parent omitted. merge_requests are the GraphQL nodes from that mergedBefore page which intersect those SHAs. !9729 is linked by the commit API but merged 2026-11-04 and is absent here. Approvals are as observed on the retrieval date, not proven as of 2026-11-04. zip does not read restSquashCommitSha."
+  },
+  "commits": [
+    {
+      "id": "41288bf252a91346ca75e69061317a82adfc52cd",
+      "committed_date": "2026-11-03T13:40:36.000+01:00",
+      "message": "enable json5 formatting for renovate config"
+    },
+    {
+      "id": "0a24f37b24a29e9c42c9d6a195dfc48a5e789fe7",
+      "committed_date": "2026-11-03T13:38:42.000+01:00",
+      "message": "Use new renovate component feature"
+    },
+    {
+      "id": "cfd7d3fb04e316f3da7f7035876503c360236ce2",
+      "committed_date": "2026-11-02T17:42:22.000+01:00",
+      "message": "Merge branch 'fix-logging-crd-cleanup-workload' into 'main'"
+    },
+    {
+      "id": "fbb2fdf69cea74276742f6c7039b954779d70dbb",
+      "committed_date": "2026-11-02T17:42:21.000+01:00",
+      "message": "Fix logging-crd cleanup for workload clusters"
+    },
+    {
+      "id": "82350f0ec173a18411fbe7e714185d4b7b18e5f4",
+      "committed_date": "2026-11-02T17:26:25.000+01:00",
+      "message": "Merge branch 'logging-metrics' into 'main'"
+    },
+    {
+      "id": "7ddfcdd304419555836013f7758e43ba43a9cfc0",
+      "committed_date": "2026-11-02T17:26:24.000+01:00",
+      "message": "updated logging fluentd config to have metrics enabled"
+    },
+    {
+      "id": "a5162e73fa7aaa3c317697fb3683e8d0b99cd043",
+      "committed_date": "2026-11-02T16:49:41.000+01:00",
+      "message": "Merge branch 'helm-unittest-for-sylva-units-test-values' into 'main'"
+    },
+    {
+      "id": "b8454eb8d874bf1e3ed46c0bb3ed957c44b40e52",
+      "committed_date": "2026-11-02T14:15:49.000+01:00",
+      "message": "Merge branch 'renovate/main-external-secrets-2.x' into 'main'"
+    },
+    {
+      "id": "04167715d35c9d8a483f4c0f48cd28e42889b852",
+      "committed_date": "2026-11-02T14:15:49.000+01:00",
+      "message": "Update Helm release external-secrets to v2.13.0 (main)"
+    },
+    {
+      "id": "c4932efec875852a74039c87731cfe302ee8b2b9",
+      "committed_date": "2026-11-02T08:21:49.000+00:00",
+      "message": "Merge branch 'renovate/main-policy-reporter-3.11.x' into 'main'"
+    },
+    {
+      "id": "4923e0b41bbe8187236310060031cbc23b129c0f",
+      "committed_date": "2026-11-02T08:21:49.000+00:00",
+      "message": "Update Helm release policy-reporter to v3.11.1 (main)"
+    },
+    {
+      "id": "45f92f34855f35a5f2f5926cf14cd107e81f4e90",
+      "committed_date": "2026-11-02T08:22:10.000+02:00",
+      "message": "Merge branch 'renovate/main-https-gitlab.com-sylva-projects-sylva-elements-helm-charts-sylva-capi-cluster.git-0.16.x' into 'main'"
+    },
+    {
+      "id": "269a64dabccd7ff5642d022ea046277d36d9a744",
+      "committed_date": "2026-11-02T08:22:10.000+02:00",
+      "message": "Update dependency https://gitlab.com/sylva-projects/sylva-elements/helm-charts/sylva-capi-cluster.git to v0.16.3 (main)"
+    },
+    {
+      "id": "c5eabb6440f6452b1fea51193e6074fce00f024b",
+      "committed_date": "2026-10-30T16:22:01.000+01:00",
+      "message": "Merge branch 'renovate/main-vault-config-operator-1.x' into 'main'"
+    },
+    {
+      "id": "345197b8f6ca505bb0babb1285168395c707c0fd",
+      "committed_date": "2026-10-30T16:22:00.000+01:00",
+      "message": "Update Helm release vault-config-operator to v1 (main)"
+    },
+    {
+      "id": "9bf90c43011fdda68a9a4bafa2f0da287cf3c59d",
+      "committed_date": "2026-10-30T12:20:59.000+00:00",
+      "message": "Merge branch 'enable-ck8s-maxunavail' into 'main'"
+    },
+    {
+      "id": "fe54b110b076d03fcb4cd9ae71912fcfd306e162",
+      "committed_date": "2026-10-30T10:13:07.000+01:00",
+      "message": "Merge branch 'renovate/main-kubernetes-sigs-cluster-api-provider-openstack-0.x' into 'main'"
+    },
+    {
+      "id": "0cf525f30d8e02ab30f3f94df9aec517e1e9dc5a",
+      "committed_date": "2026-10-30T10:13:06.000+01:00",
+      "message": "Update dependency kubernetes-sigs/cluster-api-provider-openstack to v0.15.0 (main)"
+    },
+    {
+      "id": "4851b9985207cb0d8ef4d584cea5a4bacae18c59",
+      "committed_date": "2026-10-28T22:56:35.000+01:00",
+      "message": "Merge branch 'Shreya/conditional-prometheus-remote-write' into 'main'"
+    },
+    {
+      "id": "fd792d92cf52eb12f5f8342d81451a6648ca014f",
+      "committed_date": "2026-10-28T16:05:53.000+01:00",
+      "message": "Merge branch 'ak-cabpoa-add-time' into 'main'"
+    },
+    {
+      "id": "4e0730a0f9ee69bc67aeafc81e79752780258da1",
+      "committed_date": "2026-10-28T16:05:53.000+01:00",
+      "message": "Increase cluster unit timeout for OKD/cabpoa installs"
+    },
+    {
+      "id": "e460becf36052e637a46df1aaaac14397b5abbd6",
+      "committed_date": "2026-10-28T13:17:33.000+00:00",
+      "message": "Merge branch 'renovate/main-gitpython-3.2.x' into 'main'"
+    },
+    {
+      "id": "0f494df1f604dd03d44f3d3e1fa8503d4b1ba7e3",
+      "committed_date": "2026-10-28T13:17:33.000+00:00",
+      "message": "Update pre-commit hook gitpython to v3.2.1 (main)"
+    },
+    {
+      "id": "1c916912e663442e4154fa7ba744b4727ba7fd09",
+      "committed_date": "2026-10-28T13:59:53.000+02:00",
+      "message": "Merge branch 'tibm-issue-4791-rustfs-monitoring-limit-increase' into 'main'"
+    },
+    {
+      "id": "80f3e61a53e5906450c22ed06808d633bcc78e93",
+      "committed_date": "2026-10-28T13:59:53.000+02:00",
+      "message": "rustfs-monitoring: increase memory limit for dev and CI environments"
+    },
+    {
+      "id": "b6bfccc4e2741d8059ee40e3de2d5a9ca5c455bf",
+      "committed_date": "2026-10-28T12:53:25.000+01:00",
+      "message": "move keycloak-idp test values -> inline in the unittest"
+    },
+    {
+      "id": "f3baadb1e51e41f748033cd8dc4959cf803aec73",
+      "committed_date": "2026-10-28T12:42:26.000+01:00",
+      "message": "point preview.sh to the relocated workload cluster shared-settings-mock.values.yaml"
+    },
+    {
+      "id": "8fb29144446c5f0e661420f6d9b8314183cdab82",
+      "committed_date": "2026-10-28T12:42:26.000+01:00",
+      "message": "remove test for k8s 1.34 (anticipate https://gitlab.com/sylva-projects/sylva-core/-/merge_requests/9672)"
+    },
+    {
+      "id": "e1fbb421c890d782793965862fbdab2e583a3352",
+      "committed_date": "2026-10-28T12:42:26.000+01:00",
+      "message": "convert charts/sylva-units/test-values/k8s-1.37"
+    },
+    {
+      "id": "a85f2a0b99f5bff4388d9c3457975341502fa88b",
+      "committed_date": "2026-10-28T12:42:26.000+01:00",
+      "message": "sylva-units: add a unit test for values.yaml alone"
+    }
+  ],
+  "merge_requests": [
+    {
+      "iid": "9671",
+      "mergedAt": "2026-11-02T16:42:23Z",
+      "mergeCommitSha": "cfd7d3fb04e316f3da7f7035876503c360236ce2",
+      "restSquashCommitSha": "fbb2fdf69cea74276742f6c7039b954779d70dbb",
+      "author": {
+        "username": "ionut.spanu"
+      },
+      "mergeUser": {
+        "username": "rletrocquer"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "cf11fccb1cf32c307fb66779baa120bc5546d844"
+          },
+          {
+            "sha": "f7bfbee061358af609d2069525ea21e1ab64cf2a"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "cristian.manda",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "rletrocquer",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "cisaroiu",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "tiberiu.mihai.22.97",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "dragos.gerea",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "cristian.manda"
+          },
+          {
+            "username": "cisaroiu"
+          },
+          {
+            "username": "tiberiu.mihai.22.97"
+          },
+          {
+            "username": "rletrocquer"
+          },
+          {
+            "username": "tmmorin"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9497",
+      "mergedAt": "2026-11-02T16:26:26Z",
+      "mergeCommitSha": "82350f0ec173a18411fbe7e714185d4b7b18e5f4",
+      "restSquashCommitSha": "7ddfcdd304419555836013f7758e43ba43a9cfc0",
+      "author": {
+        "username": "nitin3.sharma6675"
+      },
+      "mergeUser": {
+        "username": "rletrocquer"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "a8859d368d856e42f56c9819d7f0257f8367e847"
+          },
+          {
+            "sha": "8bdeab9f36c9d29cc9faf94bf0e245dc8b680f52"
+          },
+          {
+            "sha": "6666d717b11424b10d0df579f138695e69d9c4b8"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "feleouet",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "rletrocquer",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "mihai.zaharia",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "tmmorin"
+          },
+          {
+            "username": "rletrocquer"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "8929",
+      "mergedAt": "2026-11-02T15:49:42Z",
+      "mergeCommitSha": "a5162e73fa7aaa3c317697fb3683e8d0b99cd043",
+      "restSquashCommitSha": null,
+      "author": {
+        "username": "tmmorin"
+      },
+      "mergeUser": {
+        "username": "loic.nicolle"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "b6bfccc4e2741d8059ee40e3de2d5a9ca5c455bf"
+          },
+          {
+            "sha": "f3baadb1e51e41f748033cd8dc4959cf803aec73"
+          },
+          {
+            "sha": "8fb29144446c5f0e661420f6d9b8314183cdab82"
+          },
+          {
+            "sha": "e1fbb421c890d782793965862fbdab2e583a3352"
+          },
+          {
+            "sha": "a85f2a0b99f5bff4388d9c3457975341502fa88b"
+          },
+          {
+            "sha": "16c073a7e7cd7ba747baf65a13515a2e8ce1496b"
+          },
+          {
+            "sha": "af0226db73ca26eb4218e152d6312be60b90dd91"
+          },
+          {
+            "sha": "a697c3bbe88051162ec953ff8070cdc00b7f2f9b"
+          },
+          {
+            "sha": "b0a2b0bc4db9178d7ff37905bd2a54caec50b6d4"
+          },
+          {
+            "sha": "ffb415fed333d5e7cd5ece8440ad4f9df321b59a"
+          },
+          {
+            "sha": "2422f07c2b542e43bbf37f95bdf711cda17754df"
+          },
+          {
+            "sha": "e1026c19b922440cfca133aa4ce3f2f12e63d3c1"
+          },
+          {
+            "sha": "251a4ccfb3cd697d0fcd70e4c5acd4221a7b5284"
+          },
+          {
+            "sha": "63f2b3797fcbf329a7b15a73e853da81f16837e1"
+          },
+          {
+            "sha": "5df58ff58e0b55d577c4f17a9536c1c382eef18c"
+          },
+          {
+            "sha": "75d7fae85949cb16f8268e94e542deb494d66bd5"
+          },
+          {
+            "sha": "8d6cb129d10946227f89a6be96060c14e64ba001"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "jonathang",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "loic.nicolle",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "cristian.manda",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "bogdan.antohe",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "bogdan.antohe"
+          },
+          {
+            "username": "loic.nicolle"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9823",
+      "mergedAt": "2026-11-02T13:15:51Z",
+      "mergeCommitSha": "b8454eb8d874bf1e3ed46c0bb3ed957c44b40e52",
+      "restSquashCommitSha": "04167715d35c9d8a483f4c0f48cd28e42889b852",
+      "author": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "mergeUser": {
+        "username": "rletrocquer"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "b1253601b5e2638c21ae3dcf008d3ce0deb6dc02"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "rletrocquer",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "dragos.gerea",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "dragos.gerea"
+          },
+          {
+            "username": "rletrocquer"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9813",
+      "mergedAt": "2026-11-02T08:21:50Z",
+      "mergeCommitSha": "c4932efec875852a74039c87731cfe302ee8b2b9",
+      "restSquashCommitSha": "4923e0b41bbe8187236310060031cbc23b129c0f",
+      "author": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "mergeUser": {
+        "username": "bogdan.antohe"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "386cb4ae7d5257b1385a663ca345f4fb130fdd5d"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "bogdan.antohe",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "dragos.gerea",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "dragos.gerea"
+          },
+          {
+            "username": "bogdan.antohe"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9809",
+      "mergedAt": "2026-11-02T06:22:12Z",
+      "mergeCommitSha": "45f92f34855f35a5f2f5926cf14cd107e81f4e90",
+      "restSquashCommitSha": "269a64dabccd7ff5642d022ea046277d36d9a744",
+      "author": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "mergeUser": {
+        "username": "dragos.gerea"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "118a96df7e7a8ae9f8750539e8134d044bf732d1"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "dragos.gerea",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "vladonutu",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "tmmorin"
+          },
+          {
+            "username": "vladonutu"
+          },
+          {
+            "username": "dragos.gerea"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9074",
+      "mergedAt": "2026-10-30T15:22:02Z",
+      "mergeCommitSha": "c5eabb6440f6452b1fea51193e6074fce00f024b",
+      "restSquashCommitSha": "345197b8f6ca505bb0babb1285168395c707c0fd",
+      "author": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "mergeUser": {
+        "username": "tmmorin"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "9f230a111ec1db68d46ec2b0f55981cc915f8efe"
+          },
+          {
+            "sha": "4a947d45186dfa4476c0bbde19e4c0e1036fc19f"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "frmenguy",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "pseite",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "frmenguy"
+          },
+          {
+            "username": "tmmorin"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9544",
+      "mergedAt": "2026-10-30T12:21:00Z",
+      "mergeCommitSha": "9bf90c43011fdda68a9a4bafa2f0da287cf3c59d",
+      "restSquashCommitSha": "903240ca30512d3a99f589b90342ee3dd29f7ec4",
+      "author": {
+        "username": "feleouet"
+      },
+      "mergeUser": {
+        "username": "marc.bailly1"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "903240ca30512d3a99f589b90342ee3dd29f7ec4"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "ader1990",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "cristian.manda",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "marc.bailly1",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "tmmorin"
+          },
+          {
+            "username": "marc.bailly1"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9373",
+      "mergedAt": "2026-10-30T09:13:08Z",
+      "mergeCommitSha": "fe54b110b076d03fcb4cd9ae71912fcfd306e162",
+      "restSquashCommitSha": "0cf525f30d8e02ab30f3f94df9aec517e1e9dc5a",
+      "author": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "mergeUser": {
+        "username": "rletrocquer"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "51022e2751175e776a76e3e161f4515ce63a538a"
+          },
+          {
+            "sha": "96ab790dacbe72b18b13824571e9ab93b0e17239"
+          },
+          {
+            "sha": "df0ca9d360065c45a69e023fd2d7528e14ec88b9"
+          },
+          {
+            "sha": "92d3b03b70308fad50b87c783ba9dcd635610ec9"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "rletrocquer",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "tmmorin"
+          },
+          {
+            "username": "rletrocquer"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9791",
+      "mergedAt": "2026-10-28T21:56:36Z",
+      "mergeCommitSha": "4851b9985207cb0d8ef4d584cea5a4bacae18c59",
+      "restSquashCommitSha": "d18eda8465e2aa9262e0cabdc9301b90b03d8b41",
+      "author": {
+        "username": "shreya_gupta11"
+      },
+      "mergeUser": {
+        "username": "tmmorin"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "d18eda8465e2aa9262e0cabdc9301b90b03d8b41"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "cristian.manda",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "bogdan.antohe",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "alinhg",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "tmmorin"
+          },
+          {
+            "username": "bogdan.antohe"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9323",
+      "mergedAt": "2026-10-28T15:05:55Z",
+      "mergeCommitSha": "fd792d92cf52eb12f5f8342d81451a6648ca014f",
+      "restSquashCommitSha": "4e0730a0f9ee69bc67aeafc81e79752780258da1",
+      "author": {
+        "username": "akiselev2"
+      },
+      "mergeUser": {
+        "username": "tmmorin"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "b0abc24c1239e6e70f2977707ec5032178d1c8d5"
+          },
+          {
+            "sha": "479b3269ef6b7958c469dba328cdf078bf2bb8a5"
+          },
+          {
+            "sha": "6f816358044a19cb3a26b0d1f5d5e427a1d44788"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "cristian.manda",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "rletrocquer",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "cristian.manda"
+          },
+          {
+            "username": "tmmorin"
+          }
+        ]
+      }
+    },
+    {
+      "iid": "9814",
+      "mergedAt": "2026-10-28T13:17:34Z",
+      "mergeCommitSha": "e460becf36052e637a46df1aaaac14397b5abbd6",
+      "restSquashCommitSha": "0f494df1f604dd03d44f3d3e1fa8503d4b1ba7e3",
+      "author": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "mergeUser": {
+        "username": "service_account_group_59800588_0f6fd8e977a6c86f7522a46f254943dc"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "a37140e0a9ff387ace64049a8703303b3d82db5a"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": []
+      },
+      "approvedBy": {
+        "nodes": []
+      }
+    },
+    {
+      "iid": "9583",
+      "mergedAt": "2026-10-28T11:59:54Z",
+      "mergeCommitSha": "1c916912e663442e4154fa7ba744b4727ba7fd09",
+      "restSquashCommitSha": "80f3e61a53e5906450c22ed06808d633bcc78e93",
+      "author": {
+        "username": "tiberiu.mihai.22.97"
+      },
+      "mergeUser": {
+        "username": "dragos.gerea"
+      },
+      "commits": {
+        "nodes": [
+          {
+            "sha": "acf73633b9eb4cc932bed37d9212b6cb30482d7e"
+          }
+        ]
+      },
+      "reviewers": {
+        "nodes": [
+          {
+            "username": "tmmorin",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          },
+          {
+            "username": "cristian.manda",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "feleouet",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "bogdan.antohe",
+            "mergeRequestInteraction": {
+              "reviewState": "UNREVIEWED"
+            }
+          },
+          {
+            "username": "dragos.gerea",
+            "mergeRequestInteraction": {
+              "reviewState": "APPROVED"
+            }
+          }
+        ]
+      },
+      "approvedBy": {
+        "nodes": [
+          {
+            "username": "tmmorin"
+          },
+          {
+            "username": "dragos.gerea"
+          }
+        ]
+      }
+    }
+  ]
+}
