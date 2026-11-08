@@ -155,6 +155,123 @@ func TestSylvaPinnedWindowCodeReviewBaseline(t *testing.T) {
 	}
 }
 
+// TestSylvaWindowDefinitionCounts records alternate denominators for the same
+// pinned window. These counts are what this scorer and this input produce.
+// They are not a reading of an unpublished percentage.
+func TestSylvaWindowDefinitionCounts(t *testing.T) {
+	t.Parallel()
+
+	rawCommits, mrs, squashToMerge := loadSylvaWindow(t)
+	zipped := gitlabrepo.ZipCommitsForTest(rawCommits, mrs)
+	baseline := scoreCommits(t, zipped)
+	grouped := scoreCommits(t, associateSquashSHAs(zipped, squashToMerge))
+
+	var explicit, implicit, linkedUnapproved, unlinkedSquash, unlinkedOther int
+	var bots, serviceAuthors int
+	var commitsInApproved int
+	for _, cs := range baseline.changesets {
+		if cs.Author.IsBot {
+			bots++
+		}
+		if strings.HasPrefix(cs.Author.Login, "service_account_") {
+			serviceAuthors++
+		}
+		if nonAuthorApproved(cs) {
+			commitsInApproved += len(cs.Commits)
+		}
+		switch kind := approvalKind(cs); kind {
+		case approvalExplicit:
+			explicit++
+		case approvalImplicitMerger:
+			implicit++
+			if cs.RevisionID != "8226" && cs.RevisionID != "9729" {
+				t.Fatalf("implicit-merger changeset %s is not !8226 or !9729", cs.RevisionID)
+			}
+		case approvalUnapproved:
+			if changesetIsUnlinkedSquash(cs, squashToMerge) {
+				unlinkedSquash++
+			} else if cs.ReviewPlatform == string(checker.ReviewPlatformGitHub) {
+				linkedUnapproved++
+			} else {
+				unlinkedOther++
+			}
+		default:
+			t.Fatalf("unknown approval kind %q", kind)
+		}
+	}
+	if explicit+implicit+linkedUnapproved+unlinkedSquash+unlinkedOther != len(baseline.changesets) {
+		t.Fatalf("classification sum %d != changesets %d", explicit+implicit+linkedUnapproved+unlinkedSquash+unlinkedOther, len(baseline.changesets))
+	}
+	// Locked to the production review list for this fixture. zip keeps one
+	// approver, then getGithubReviews adds the merger. !8226 is implicit here
+	// even though GitLab also recorded cisaroiu, because that approver is past
+	// the break. !9729's only approver is the merger.
+	if explicit != 8 || implicit != 2 || linkedUnapproved != 4 || unlinkedSquash != 11 || unlinkedOther != 2 {
+		t.Fatalf("definition split explicit=%d implicit=%d linkedUnapproved=%d unlinkedSquash=%d unlinkedOther=%d\n%s",
+			explicit, implicit, linkedUnapproved, unlinkedSquash, unlinkedOther, formatChangesets(baseline.changesets))
+	}
+	if bots != 0 || serviceAuthors != 9 {
+		t.Fatalf("bots=%d service-account authors=%d, want 0 and 9", bots, serviceAuthors)
+	}
+	if commitsInApproved != 13 || len(rawCommits) != 30 {
+		t.Fatalf("commits in approved changesets=%d of %d", commitsInApproved, len(rawCommits))
+	}
+	groupedApprovedCommits := 0
+	for _, cs := range grouped.changesets {
+		if nonAuthorApproved(cs) {
+			groupedApprovedCommits += len(cs.Commits)
+		}
+	}
+	// Seven unlinked squashes belong to MRs that are already approved, so
+	// grouping them adds seven commits to the approved-changeset commit count.
+	if groupedApprovedCommits != 20 || grouped.approved != 10 || grouped.total != 16 {
+		t.Fatalf("grouped commits in approved changesets=%d changesets %d/%d", groupedApprovedCommits, grouped.approved, grouped.total)
+	}
+}
+
+const (
+	approvalExplicit       = "explicit"
+	approvalImplicitMerger = "implicit-merger"
+	approvalUnapproved     = "unapproved"
+)
+
+func approvalKind(cs checker.Changeset) string {
+	if !nonAuthorApproved(cs) {
+		return approvalUnapproved
+	}
+	merger := mergerLogin(cs)
+	for _, review := range cs.Reviews {
+		if review.State != "APPROVED" || review.Author == nil {
+			continue
+		}
+		login := review.Author.Login
+		if login == "" || login == cs.Author.Login {
+			continue
+		}
+		if login != merger {
+			return approvalExplicit
+		}
+	}
+	return approvalImplicitMerger
+}
+
+func mergerLogin(cs checker.Changeset) string {
+	for _, commit := range cs.Commits {
+		if commit.AssociatedMergeRequest.Number != 0 {
+			return commit.AssociatedMergeRequest.MergedBy.Login
+		}
+	}
+	return ""
+}
+
+func changesetIsUnlinkedSquash(cs checker.Changeset, squashToMerge map[string]string) bool {
+	if len(cs.Commits) != 1 {
+		return false
+	}
+	_, ok := squashToMerge[cs.Commits[0].SHA]
+	return ok && cs.ReviewPlatform != string(checker.ReviewPlatformGitHub)
+}
+
 func assertControlChangesets(t *testing.T, sets []checker.Changeset) {
 	t.Helper()
 	ordinary, ok := changesetContaining(sets, ordinaryMergeSHA)
